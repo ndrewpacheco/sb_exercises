@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header"></div>
+    <section id="container">
+      <ul>
+        <li class="first">one</li>
+        <li class="second">two</li>
+        <li class="third">three</li>
+      </ul>
+      <ol>
+        <li class="first">one</li>
+        <li class="second">two</li>
+        <li class="third">three</li>
+      </ol>
+    </section>
+    <div class="footer"></div>
+
+    <script>
+      //   Exercise
+      // Write the code necessary to do the following:
+
+      // Select the section with an id of container without using querySelector.
+      const container = document.getElementById("container");
+      console.log("question 1:", container);
+
+      // Select the section with an id of container using querySelector.
+      const question2 = document.querySelector("#container");
+      console.log("question 2:", question2);
+
+      // Select all of the list items with a class of “second”.
+      const question3 = document.getElementsByClassName("second");
+      console.log("question 3:", question3);
+
+      // Select a list item with a class of third, but only the list item inside of the ol tag.
+      const question4 = document.querySelector("ol .third");
+      console.log("question 4:", question4);
+
+      // Give the section with an id of container the text “Hello!”.
+      // container.innerText = "Hello!";
+      // console.log("question 5:", container);
+
+      // Add the class main to the div with a class of footer.
+      const footer = document.querySelector(".footer");
+      footer.classList.add("main");
+      console.log("question 6:", footer);
+
+      // Remove the class main on the div with a class of footer.
+      footer.classList.remove("main");
+      console.log("question 7:", footer);
+
+      // Create a new li element.
+      const li = document.createElement("li");
+      console.log("question 8: ", li);
+
+      // Give the li the text “four”.
+      li.innerText = "four";
+      console.log("question 9: ", li);
+
+      // Append the li to the ul element.
+      const ul = document.querySelector("ul");
+      ul.append(li);
+      console.log("question 10: ", ul);
+
+      // Loop over all of the lis inside the ol tag and give them a background color of “green”.
+      const listItems = document.querySelectorAll("ol li");
+      console.log(listItems);
+      for (let listItem of listItems) {
+        listItem.style.backgroundColor = "green";
+      }
+      console.log("question 11: ", listItems);
+
+      // Remove the div with a class of footer
+      footer.remove();
+      //
+    </script>
+  </body>
+</html>
