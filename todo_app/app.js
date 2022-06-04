@@ -28,6 +28,9 @@ const createLi = (input) => {
   return li;
 };
 
+const todosToStorage = () =>
+  localStorage.setItem("todos", JSON.stringify(todos));
+
 const createTextDecoration = (item, conditional) =>
   (item.style.textDecoration = conditional ? "line-through" : "none");
 
@@ -38,7 +41,7 @@ const removeItem = (e) => {
   const i = todos.indexOf(todo);
   todos.splice(i, 1);
 
-  localStorage.setItem("todos", JSON.stringify(todos));
+  todosToStorage();
 };
 
 if (todos.length > 0)
@@ -59,7 +62,8 @@ form.addEventListener("submit", (e) => {
 
   createLi(input.value);
   todos.push({ input: input.value, checked: false });
-  localStorage.setItem("todos", JSON.stringify(todos));
+
+  todosToStorage();
   input.value = "";
 });
 
@@ -76,6 +80,7 @@ ul.addEventListener("click", (e) => {
     todos.forEach((todo) => {
       if (todo.input === text) todo.checked = e.target.checked;
     });
-    localStorage.setItem("todos", JSON.stringify(todos));
+
+    todosToStorage();
   }
 });
