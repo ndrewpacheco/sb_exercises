@@ -39,10 +39,12 @@ function update() {
 function calculateMonthlyPayment(values) {
   const { amount, years, rate } = values;
 
-  // monthly payment=𝑃×𝑖/ 1 −(1+𝑖)−𝑛
+  // monthly payment=𝑃×𝑖 / 1 −(1+𝑖) ** −𝑛
   let i = rate / 12;
   let a = amount * i;
   let b = 1 - (1 + i) ** (-years * 12);
+
+  if (a === 0 || b === 0) return 0; // to prevent NaN from appearing
 
   return (a / b).toFixed(2);
 }
@@ -50,8 +52,6 @@ function calculateMonthlyPayment(values) {
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
 function updateMonthly(monthly) {
+  console.log(monthly);
   document.getElementById("monthly-payment").innerText = monthly;
 }
-
-//   document.getElementById("monthly-payment").innerText =
-// calculateMonthlyPayment(getCurrentUIValues);
