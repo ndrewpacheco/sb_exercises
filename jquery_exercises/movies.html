@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="title">
+        Title:
+        <input type="text" id="title" />
+      </label>
+      <label for="rating">
+        Rating:
+        <input type="text" id="rating" />
+        <button type="submit">Submit</button>
+      </label>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+      $("form").on("submit", (e) => {
+        e.preventDefault();
+        const title = $("#title").val();
+        const rating = $("#rating").val();
+
+        const div = $("<div>");
+        const btn = $("<button>")
+          .text("Remove")
+          .on("click", () => div.remove());
+
+        div
+          .append(`<p>Title: ${title}</p>`)
+          .append(`<p>Rating: ${rating}</p>`)
+          .append(btn)
+          .appendTo("body");
+      });
+
+      // $(btn).on("click", () => div.remove());
+    </script>
+  </body>
+</html>
